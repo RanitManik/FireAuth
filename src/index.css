@@ -3,17 +3,17 @@
 @tailwind utilities;
 
 body {
-    @apply min-h-[100svh] bg-gray-100 grid place-items-center content-center px-4 py-8;
+  @apply grid min-h-[100svh] place-items-center content-center bg-gray-100 px-4 py-8;
 }
 
 #root {
-    @apply w-full;
+  @apply w-full;
 }
 
 .auth-btn {
-    @apply p-4 border border-neutral-300 rounded-md text-start flex gap-4 text-gray-600 hover:bg-gray-200 hover:border-neutral-400 transition focus:bg-gray-200 focus:border-neutral-500 focus:outline-none;
+  @apply flex gap-4 rounded-md border border-neutral-300 p-4 text-start text-gray-600 transition hover:border-neutral-400 hover:bg-gray-200 focus:border-neutral-500 focus:bg-gray-200 focus:outline-none;
 }
 
 .auth-btn img {
-    @apply h-6 w-6;
+  @apply h-6 w-6;
 }

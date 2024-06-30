@@ -19,5 +19,5 @@ export const assets = {
   twitter,
   facebook,
   yahoo,
-  PlayGame
+  PlayGame,
 };
