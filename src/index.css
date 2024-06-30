@@ -9,11 +9,3 @@ body {
 #root {
   @apply w-full;
 }
-
-.auth-btn {
-  @apply flex gap-4 rounded-md border border-neutral-300 p-4 text-start text-gray-600 transition hover:border-neutral-400 hover:bg-gray-200 focus:border-neutral-500 focus:bg-gray-200 focus:outline-none;
-}
-
-.auth-btn img {
-  @apply h-6 w-6;
-}
