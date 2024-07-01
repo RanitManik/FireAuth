@@ -11,7 +11,7 @@ const InputComponent = ({ type, name, placeholder, autoFocus }) => {
       />
       <label
         htmlFor={name}
-        className="absolute left-3 top-3 z-10 origin-[0] -translate-y-4 scale-75 transform bg-white px-3 font-semibold text-gray-400 duration-150 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-5 peer-focus:scale-75 peer-focus:text-blue-600"
+        className="pointer-events-none absolute left-3 top-3 z-10 origin-[0] -translate-y-4 scale-75 transform rounded bg-white px-3 font-semibold text-gray-400 duration-150 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-5 peer-focus:scale-75 peer-focus:text-blue-600"
       >
         {placeholder}
       </label>

@@ -7,7 +7,7 @@ const AuthBtnContainerComponent = () => {
       imgSrc: assets.email,
       altText: "Email",
       buttonText: "Continue with Email",
-      route: "/email",
+      route: "/email/signup",
     },
     {
       imgSrc: assets.phone,

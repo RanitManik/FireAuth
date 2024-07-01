@@ -2,7 +2,7 @@ import { ComponentPreview, Previews } from "@react-buddy/ide-toolbox";
 import { PaletteTree } from "./palette";
 import WelcomeComponent from "../component/welcome/welcome.component.jsx";
 import InputComponent from "../component/input/input.component.jsx";
-import ContinueWithEmail from "../route/continue_with_email/continue_with_email.jsx";
+import SignUpWithEmail from "../route/continue_with_email/sign_up_with_email.jsx";
 import GetStartedComponent from "../component/get_started/get_started.component.jsx";
 import Home from "../route/home/home.jsx";
 import ButtonComponent from "../component/button/button.component.jsx";
@@ -17,7 +17,7 @@ const ComponentPreviews = () => {
         <InputComponent />
       </ComponentPreview>
       <ComponentPreview path="/ContinueWithEmail">
-        <ContinueWithEmail />
+        <SignUpWithEmail />
       </ComponentPreview>
       <ComponentPreview path="/GetStartedComponent">
         <GetStartedComponent />
