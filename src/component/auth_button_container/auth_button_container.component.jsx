@@ -6,12 +6,14 @@ const AuthBtnContainerComponent = () => {
     {
       imgSrc: assets.email,
       altText: "Email",
-      buttonText: "Continue with email",
+      buttonText: "Continue with Email",
+      route: "/email",
     },
     {
       imgSrc: assets.phone,
       altText: "Phone",
-      buttonText: "Continue with phone",
+      buttonText: "Continue with Phone",
+      route: "/phone",
     },
     {
       imgSrc: assets.google,
@@ -54,6 +56,7 @@ const AuthBtnContainerComponent = () => {
       buttonText: "Continue with Play Games",
     },
   ];
+
   return (
     <div className="grid w-full gap-4 md:grid-cols-2">
       {authButtons.map((btn, index) => (
@@ -62,9 +65,11 @@ const AuthBtnContainerComponent = () => {
           imgSrc={btn.imgSrc}
           altText={btn.altText}
           buttonText={btn.buttonText}
+          route={btn.route}
         />
       ))}
     </div>
   );
 };
+
 export default AuthBtnContainerComponent;
