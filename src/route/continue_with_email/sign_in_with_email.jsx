@@ -14,10 +14,10 @@ const LogInWithEmail = () => {
       <p className="my-2 text-center text-gray-500">
         Enter your details to sign in
       </p>
-      <InputComponent name="email" type="email" placeholder="Email" />
+      <InputComponent autoFocus name="email" type="email" placeholder="Email" />
       <InputComponent name="password" type="password" placeholder="Password" />
       <CheckboxComponent checkBoxLabel={checkBoxLabel} />
-      <ButtonComponent type="submit" text="Sign up" />
+      <ButtonComponent type="submit" text="Log in" />
       <HorizontalRuler />
       <div className="flex flex-wrap justify-center gap-2 px-8 text-center">
         {/* eslint-disable-next-line react/no-unescaped-entities */}

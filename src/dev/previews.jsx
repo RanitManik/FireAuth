@@ -6,6 +6,7 @@ import SignUpWithEmail from "../route/continue_with_email/sign_up_with_email.jsx
 import GetStartedComponent from "../component/get_started/get_started.component.jsx";
 import Home from "../route/home/home.jsx";
 import ButtonComponent from "../component/button/button.component.jsx";
+import LogInWithEmail from "../route/continue_with_email/sign_in_with_email.jsx";
 
 const ComponentPreviews = () => {
   return (
@@ -27,6 +28,9 @@ const ComponentPreviews = () => {
       </ComponentPreview>
       <ComponentPreview path="/ButtonComponent">
         <ButtonComponent />
+      </ComponentPreview>
+      <ComponentPreview path="/LogInWithEmail">
+        <LogInWithEmail />
       </ComponentPreview>
     </Previews>
   );
