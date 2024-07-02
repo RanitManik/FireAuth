@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
+import { getAnalytics, logEvent } from "firebase/analytics";
 
 import {
   createUserWithEmailAndPassword,
@@ -9,6 +9,11 @@ import {
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
+  RecaptchaVerifier,
+  signInWithPhoneNumber,
+  GithubAuthProvider,
+  TwitterAuthProvider,
+  FacebookAuthProvider,
 } from "firebase/auth";
 
 import {
@@ -23,26 +28,46 @@ import {
 } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: import.meta.env.FIREBASE_API_KEY,
-  authDomain: import.meta.env.FIREBASE_AUTH_DOMAIN,
-  projectId: import.meta.env.FIREBASE_PROJECT_ID,
-  storageBucket: import.meta.env.FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: import.meta.env.FIREBASE_MESSAGING_SENDER_ID,
-  appId: import.meta.env.FIREBASE_APP_ID,
-  measurementId: import.meta.env.FIREBASE_MEASUREMENT_ID,
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
+  measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID,
 };
 
 const firebaseApp = initializeApp(firebaseConfig);
 const firebaseAnalytics = getAnalytics(firebaseApp);
+
+// Log a custom event
+logEvent(firebaseAnalytics, "notification_received");
 
 const googleProvider = new GoogleAuthProvider();
 googleProvider.setCustomParameters({
   prompt: "select_account",
 });
 
+const githubProvider = new GithubAuthProvider();
+const twitterProvider = new TwitterAuthProvider();
+const facebookProvider = new FacebookAuthProvider();
+
 export const auth = getAuth();
 export const signInWithGooglePopup = () =>
   signInWithPopup(auth, googleProvider);
+export const signInWithGithubPopup = () =>
+  signInWithPopup(auth, githubProvider);
+export const signInWithTwitterPopup = () =>
+  signInWithPopup(auth, twitterProvider);
+export const signInWithFacebookPopup = () =>
+  signInWithPopup(auth, facebookProvider);
+export const setupRecaptcha = (elementId) => {
+  return new RecaptchaVerifier(elementId, {}, auth);
+};
+
+export const signInWithPhone = async (phoneNumber, appVerifier) => {
+  return await signInWithPhoneNumber(auth, phoneNumber, appVerifier);
+};
 
 export const db = getFirestore();
 
@@ -105,6 +130,7 @@ export const createUserDocumentFromAuth = async (
 export const createAuthUserWithEmailAndPassword = async (email, password) => {
   return await createUserWithEmailAndPassword(auth, email, password);
 };
+
 export const signInAuthUserWithEmailAndPassword = async (email, password) => {
   return await signInWithEmailAndPassword(auth, email, password);
 };
