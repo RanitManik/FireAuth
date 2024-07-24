@@ -6,11 +6,13 @@ import ButtonComponent from "../component/Button.component.jsx";
 import { signOutUser } from "../util/firebase.util.js";
 
 const HomeRoute = () => {
-  const { currentUser } = useContext(UserContext);
+  const { currentUser, loading } = useContext(UserContext);
 
   console.log(currentUser);
 
-  if (!currentUser) {
+  if (loading) {
+    return <h1 className="text-center text-2xl">Loading...</h1>;
+  } else if (!currentUser) {
     return (
       <div className="m-auto max-w-fit">
         <WelcomeComponent />
