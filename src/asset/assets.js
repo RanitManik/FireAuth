@@ -4,6 +4,7 @@ import google from "./logo/google.svg";
 import github from "./logo/github.svg";
 import twitter from "./logo/twitter.svg";
 import facebook from "./logo/facebook.svg";
+import user from "./icons/user.svg";
 
 export const assets = {
   email,
@@ -12,4 +13,5 @@ export const assets = {
   github,
   twitter,
   facebook,
+  user,
 };

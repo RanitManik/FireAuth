@@ -3,8 +3,7 @@ export default {
   content: ["./src/**/*.{html,js,jsx,ts,tsx}"],
   theme: {
     extend: {
-      colors: {
-      },
+      colors: {},
       fontFamily: {
         body: ["\"Open Sans\"", "sans-serif"]
       },
@@ -13,6 +12,9 @@ export default {
       }
     }
   },
-  plugins: []
+  plugins: [
+    // eslint-disable-next-line no-undef
+    require("tailwindcss-animate")
+  ]
 };
 

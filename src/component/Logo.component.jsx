@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const LogoComponent = () => {
   return (
     <Link
-      className="m-auto grid w-fit place-items-center rounded-full border-2 border-transparent focus-visible:border-2 focus-visible:border-red-300 focus-visible:outline-none"
+      className="m-auto grid w-fit place-items-center rounded-full border-2 border-transparent transition hover:border-red-300 focus-visible:border-2 focus-visible:border-red-300 focus-visible:outline-none"
       to="/"
     >
       <img

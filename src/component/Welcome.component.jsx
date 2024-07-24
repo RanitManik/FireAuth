@@ -1,4 +1,4 @@
-import LogoComponent from "../logo/logo.component.jsx";
+import LogoComponent from "./Logo.component.jsx";
 
 const WelcomeComponent = () => (
   <div className="mb-4 grid justify-items-center gap-4">

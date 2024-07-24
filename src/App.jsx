@@ -1,18 +1,20 @@
 import { Route, Routes } from "react-router-dom";
-import Home from "./route/home/home.jsx";
-import SignUpWithEmail from "./route/continue_with_email/sign_up_with_email.jsx";
-import ContinueWithPhone from "./route/continue_with_phone/continue_with_phone.jsx";
-import LogInWithEmail from "./route/continue_with_email/sign_in_with_email.jsx";
-import User from "./route/user/user.component.jsx";
+import Home from "./route/Home.route.jsx";
+import Profile from "./route/Profile.route.jsx";
+import { SignInByEmailRoute } from "./route/SignInByEmail.route.jsx";
+import { SignUpByEmailRoute } from "./route/SignUpByEmail.route.jsx";
+import { SignInWithPhoneComponent } from "./component/SignInWithPhone.component.jsx";
+import { SignUpWithPhoneComponent } from "./component/SignUpWithPhone.component.jsx";
 
 const App = () => {
   return (
     <Routes>
       <Route index path="/" element={<Home />}></Route>
-      <Route path="/email/signup" element={<SignUpWithEmail />}></Route>
-      <Route path="/email/login" element={<LogInWithEmail />}></Route>
-      <Route path="/phone" element={<ContinueWithPhone />}></Route>
-      <Route path="/profile" element={<User />}></Route>
+      <Route index path="/login/email" element={<SignInByEmailRoute />}></Route>
+      <Route index path="/signup/email" element={<SignUpByEmailRoute />}></Route>
+      <Route index path="/login/phone" element={<SignInWithPhoneComponent />}></Route>
+      <Route index path="/signup/phone" element={<SignUpWithPhoneComponent />}></Route>
+      <Route path="/profile" element={<Profile />}></Route>
     </Routes>
   );
 };

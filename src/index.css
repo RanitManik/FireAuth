@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-  @apply grid min-h-[100svh] place-items-center content-center bg-gray-100 px-4 py-8 font-body;
+  @apply relative grid min-h-[100svh] place-items-center content-center bg-gray-100 px-4 py-8 font-body;
 }
 
 #root {

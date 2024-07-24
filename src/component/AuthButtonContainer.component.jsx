@@ -1,11 +1,11 @@
-import { assets } from "../../asset/assets";
-import AuthButton from "../auth_button/auth_button.component.jsx";
+import { assets } from "../asset/assets.js";
+import AuthButton from "./AuthButton.component.jsx";
 import {
   signInWithFacebookPopup,
   signInWithGithubPopup,
   signInWithGooglePopup,
-  signInWithTwitterPopup,
-} from "../../util/firebase/firebase.util.js";
+  signInWithTwitterPopup
+} from "../util/firebase.util.js";
 
 const AuthBtnContainerComponent = () => {
   const authButtons = [
@@ -13,38 +13,38 @@ const AuthBtnContainerComponent = () => {
       imgSrc: assets.email,
       altText: "Email",
       buttonText: "Continue with Email",
-      route: "/email/signup",
+      route: "/login/email"
     },
     {
       imgSrc: assets.phone,
       altText: "Phone",
       buttonText: "Continue with Phone",
-      route: "/phone",
+      route: "/login/phone"
     },
     {
       imgSrc: assets.google,
       altText: "Google",
       buttonText: "Continue with Google",
-      authFunction: signInWithGooglePopup,
+      authFunction: signInWithGooglePopup
     },
     {
       imgSrc: assets.github,
       altText: "GitHub",
       buttonText: "Continue with GitHub",
-      authFunction: signInWithGithubPopup,
+      authFunction: signInWithGithubPopup
     },
     {
       imgSrc: assets.twitter,
       altText: "Twitter",
       buttonText: "Continue with Twitter",
-      authFunction: signInWithTwitterPopup,
+      authFunction: signInWithTwitterPopup
     },
     {
       imgSrc: assets.facebook,
       altText: "Facebook",
       buttonText: "Continue with Facebook",
-      authFunction: signInWithFacebookPopup,
-    },
+      authFunction: signInWithFacebookPopup
+    }
   ];
 
   return (
