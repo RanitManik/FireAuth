@@ -1,5 +1,6 @@
 import ButtonComponent from "../component/Button.component.jsx";
 import { assets } from "../asset/assets";
+import { signOutUser } from "../util/firebase.util.js";
 
 const ProfileRoute = () => {
   return (
@@ -13,7 +14,7 @@ const ProfileRoute = () => {
         <span>Email</span>
         <span>ranitmanik@gmail.com</span>
       </div>
-      <ButtonComponent text="Log out" />
+      <ButtonComponent onClick={() => signOutUser()} text="Log out" />
     </div>
   );
 };

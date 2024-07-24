@@ -4,7 +4,7 @@ import {
   signInWithFacebookPopup,
   signInWithGithubPopup,
   signInWithGooglePopup,
-  signInWithTwitterPopup
+  signInWithTwitterPopup,
 } from "../util/firebase.util.js";
 
 const AuthBtnContainerComponent = () => {
@@ -13,38 +13,38 @@ const AuthBtnContainerComponent = () => {
       imgSrc: assets.email,
       altText: "Email",
       buttonText: "Continue with Email",
-      route: "/login/email"
+      route: "/login/email",
     },
     {
       imgSrc: assets.phone,
       altText: "Phone",
       buttonText: "Continue with Phone",
-      route: "/login/phone"
+      route: "/login/phone",
     },
     {
       imgSrc: assets.google,
       altText: "Google",
       buttonText: "Continue with Google",
-      authFunction: signInWithGooglePopup
+      authFunction: signInWithGooglePopup,
     },
     {
       imgSrc: assets.github,
       altText: "GitHub",
       buttonText: "Continue with GitHub",
-      authFunction: signInWithGithubPopup
+      authFunction: signInWithGithubPopup,
     },
     {
       imgSrc: assets.twitter,
       altText: "Twitter",
       buttonText: "Continue with Twitter",
-      authFunction: signInWithTwitterPopup
+      authFunction: signInWithTwitterPopup,
     },
     {
       imgSrc: assets.facebook,
       altText: "Facebook",
       buttonText: "Continue with Facebook",
-      authFunction: signInWithFacebookPopup
-    }
+      authFunction: signInWithFacebookPopup,
+    },
   ];
 
   return (

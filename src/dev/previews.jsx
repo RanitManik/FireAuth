@@ -20,8 +20,7 @@ const ComponentPreviews = () => {
       <ComponentPreview path="/GetStartedComponent">
         <GetStartedComponent />
       </ComponentPreview>
-      <ComponentPreview
-        path="/AuthBtnContainerComponent">
+      <ComponentPreview path="/AuthBtnContainerComponent">
         <AuthBtnContainerComponent />
       </ComponentPreview>
       <ComponentPreview path="/WelcomeComponent">
@@ -30,12 +29,10 @@ const ComponentPreviews = () => {
       <ComponentPreview path="/ProfileRoute">
         <ProfileRoute />
       </ComponentPreview>
-      <ComponentPreview
-        path="/SignInWithPhoneComponent">
+      <ComponentPreview path="/SignInWithPhoneComponent">
         <SignInWithPhoneComponent />
       </ComponentPreview>
-      <ComponentPreview
-        path="/SignUpWithPhoneComponent">
+      <ComponentPreview path="/SignUpWithPhoneComponent">
         <SignUpWithPhoneComponent />
       </ComponentPreview>
     </Previews>
