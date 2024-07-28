@@ -3,8 +3,8 @@ import AuthButton from "./AuthButton.component.jsx";
 import {
   signInWithFacebookPopup,
   signInWithGithubPopup,
-  signInWithGooglePopup,
-  signInWithTwitterPopup,
+  signInWithGooglePopup, signInWithMicrosoftPopup,
+  signInWithTwitterPopup, signInWithYahooPopup
 } from "../util/firebase.util.js";
 
 const AuthBtnContainerComponent = () => {
@@ -28,6 +28,12 @@ const AuthBtnContainerComponent = () => {
       authFunction: signInWithGooglePopup,
     },
     {
+      imgSrc: assets.microsoft,
+      altText: "Microsoft",
+      buttonText: "Continue with Microsoft",
+      authFunction: signInWithMicrosoftPopup,
+    },
+    {
       imgSrc: assets.github,
       altText: "GitHub",
       buttonText: "Continue with GitHub",
@@ -44,6 +50,12 @@ const AuthBtnContainerComponent = () => {
       altText: "Facebook",
       buttonText: "Continue with Facebook",
       authFunction: signInWithFacebookPopup,
+    },
+    {
+      imgSrc: assets.yahoo,
+      altText: "Yahoo",
+      buttonText: "Continue with Yahoo",
+      authFunction: signInWithYahooPopup,
     },
   ];
 

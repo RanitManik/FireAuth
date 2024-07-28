@@ -14,6 +14,7 @@ import {
   GithubAuthProvider,
   TwitterAuthProvider,
   FacebookAuthProvider,
+  OAuthProvider
 } from "firebase/auth";
 
 import {
@@ -24,7 +25,7 @@ import {
   query,
   setDoc,
   writeBatch,
-  getDocs,
+  getDocs
 } from "firebase/firestore";
 
 const firebaseConfig = {
@@ -34,7 +35,7 @@ const firebaseConfig = {
   storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
   messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
   appId: import.meta.env.VITE_FIREBASE_APP_ID,
-  measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID,
+  measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID
 };
 
 const firebaseApp = initializeApp(firebaseConfig);
@@ -45,12 +46,14 @@ logEvent(firebaseAnalytics, "notification_received");
 
 const googleProvider = new GoogleAuthProvider();
 googleProvider.setCustomParameters({
-  prompt: "select_account",
+  prompt: "select_account"
 });
 
 const githubProvider = new GithubAuthProvider();
 const twitterProvider = new TwitterAuthProvider();
 const facebookProvider = new FacebookAuthProvider();
+const MicrosoftProvider = new OAuthProvider("microsoft.com");
+const YahooProvider = new OAuthProvider("yahoo.com");
 
 export const auth = getAuth();
 export const signInWithGooglePopup = () =>
@@ -61,6 +64,10 @@ export const signInWithTwitterPopup = () =>
   signInWithPopup(auth, twitterProvider);
 export const signInWithFacebookPopup = () =>
   signInWithPopup(auth, facebookProvider);
+export const signInWithMicrosoftPopup = () =>
+  signInWithPopup(auth, MicrosoftProvider);
+export const signInWithYahooPopup = () =>
+  signInWithPopup(auth, YahooProvider);
 export const setupRecaptcha = (elementId) => {
   return new RecaptchaVerifier(elementId, {}, auth);
 };
@@ -73,7 +80,7 @@ export const db = getFirestore();
 
 export const addCollectionAndDocuments = async (
   collectionKey,
-  objectsToAdd,
+  objectsToAdd
 ) => {
   const collectionRef = collection(db, collectionKey);
   const batch = writeBatch(db);
@@ -101,7 +108,7 @@ export const getCategoriesAndDocuments = async () => {
 
 export const createUserDocumentFromAuth = async (
   userAuth,
-  additionalInformation = {},
+  additionalInformation = {}
 ) => {
   if (!userAuth) return;
   const userDocRef = doc(db, "users", userAuth.uid);
@@ -118,7 +125,7 @@ export const createUserDocumentFromAuth = async (
         displayName,
         email,
         createdAt,
-        ...additionalInformation,
+        ...additionalInformation
       });
     } catch (error) {
       console.log("error creating the user!", error.message);
