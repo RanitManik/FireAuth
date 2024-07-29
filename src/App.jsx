@@ -1,6 +1,5 @@
 import { Route, Routes } from "react-router-dom";
 import Home from "./route/Home.route.jsx";
-import Profile from "./route/Profile.route.jsx";
 import { SignInByEmailRoute } from "./route/SignInByEmail.route.jsx";
 import { SignUpByEmailRoute } from "./route/SignUpByEmail.route.jsx";
 import { SignUpByPhoneRoute } from "./route/SignUpByPhone.route.jsx";
@@ -22,7 +21,6 @@ const App = () => {
         path="/signup/phone"
         element={<SignUpByPhoneRoute />}
       ></Route>
-      <Route path="/profile" element={<Profile />}></Route>
     </Routes>
   );
 };

@@ -6,6 +6,7 @@ import twitter from "./logo/twitter.svg";
 import facebook from "./logo/facebook.svg";
 import microsoft from "./logo/microsoft.svg";
 import yahoo from "./logo/yahoo.svg";
+import userIcon from "./icons/user-icon.svg";
 
 export const assets = {
   email,
@@ -15,5 +16,6 @@ export const assets = {
   twitter,
   facebook,
   microsoft,
-  yahoo
+  yahoo,
+  userIcon,
 };

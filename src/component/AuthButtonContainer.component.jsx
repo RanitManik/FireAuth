@@ -1,13 +1,16 @@
 import { assets } from "../asset/assets.js";
 import AuthButton from "./AuthButton.component.jsx";
-import {
-  signInWithFacebookPopup,
-  signInWithGithubPopup,
-  signInWithGooglePopup, signInWithMicrosoftPopup,
-  signInWithTwitterPopup, signInWithYahooPopup
-} from "../util/firebase.util.js";
+import { useFirebase } from "../context/firebase.context.jsx";
 
 const AuthBtnContainerComponent = () => {
+  const {
+    signInWithGooglePopup,
+    signInWithGithubPopup,
+    signInWithTwitterPopup,
+    signInWithFacebookPopup,
+    signInWithMicrosoftPopup,
+    signInWithYahooPopup,
+  } = useFirebase();
   const authButtons = [
     {
       imgSrc: assets.email,

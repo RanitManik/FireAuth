@@ -13,7 +13,7 @@ export const SignUpWithPhoneComponent = () => {
     </>
   );
   return (
-    <div className="absolute bottom-0 left-0 right-0 top-0 grid content-center gap-6 bg-gray-100/50 p-4 backdrop-blur-sm animate-in fade-in zoom-in">
+    <div className="absolute bottom-0 left-0 right-0 top-0 grid content-center gap-6 bg-gray-100/50 p-4 backdrop-blur-sm animate-in fade-in">
       <div className="m-auto max-h-fit w-fit min-w-full rounded-xl bg-white p-8 text-body shadow sm:min-w-[30rem]">
         <h1 className="text-center text-2xl">Create a new Account</h1>
         <p className="my-2 text-center text-gray-500">

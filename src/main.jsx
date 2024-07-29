@@ -5,19 +5,19 @@ import "./index.css";
 import { BrowserRouter } from "react-router-dom";
 import { DevSupport } from "@react-buddy/ide-toolbox";
 import { ComponentPreviews, useInitial } from "./dev/index.js";
-import { UserProvider } from "./context/User.context.jsx";
+import { FirebaseProvider } from "./context/firebase.context.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <BrowserRouter>
-      <UserProvider>
+      <FirebaseProvider>
         <DevSupport
           ComponentPreviews={ComponentPreviews}
           useInitialHook={useInitial}
         >
           <App />
         </DevSupport>
-      </UserProvider>
+      </FirebaseProvider>
     </BrowserRouter>
   </React.StrictMode>,
 );

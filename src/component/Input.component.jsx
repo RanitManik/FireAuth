@@ -1,11 +1,22 @@
-const InputComponent = ({ type, name, placeholder, autoFocus }) => {
+const InputComponent = ({
+  type,
+  name,
+  placeholder,
+  autoFocus,
+  required,
+  value,
+  onChange,
+}) => {
   return (
     <div className="relative mt-6">
       <input
+        required={required}
         autoFocus={autoFocus}
         type={type}
         name={name}
         id={name}
+        value={value}
+        onChange={onChange}
         placeholder=" "
         className="peer block w-full appearance-none rounded-lg border-2 border-gray-200 bg-transparent px-6 py-3 text-gray-900 caret-blue-600 transition focus:border-blue-600 focus:shadow-md focus:shadow-blue-100 focus:outline-none focus:ring-0"
       />
