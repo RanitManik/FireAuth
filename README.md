@@ -205,9 +205,38 @@ We welcome contributions to enhance the FireSign application. To contribute:
 
 ## Contact
 
-- **LinkedIn**: [Ranit Manik](https://www.linkedin.com/in/ranit-manik/)
-- **GitHub**: [RanitManik](https://github.com/RanitManik)
-- **Email**: [ranitmanik.dev@gmail.com](mailto:ranitmanik.dev@gmail.com)
+<table>
+  <tr>
+    <th></th>
+    <th>Social Media</th>
+    <th>Username</th>
+    <th>Link</th>
+  </tr>
+  <tr>
+    <td><img src="https://cdn4.iconfinder.com/data/icons/social-media-logos-6/512/112-gmail_email_mail-512.png" width="20" /></td>
+    <td>Email</td>
+    <td><code>ranitmanik.dev@gmail.com</code></td>
+    <td><a href="mailto:ranitmanik.dev@gmail.com" target="_blank">Email</a></td>
+  </tr>
+  <tr>
+    <td><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/LinkedIn_logo_initials.png/480px-LinkedIn_logo_initials.png" width="20" /></td>
+    <td>LinkedIn</td>
+    <td><code>Ranit Manik</code></td>
+    <td><a href="https://www.linkedin.com/in/ranit-manik/" target="_blank">LinkedIn</a></td>
+  </tr>
+  <tr>
+    <td><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/600px-Instagram_icon.png" width="20" /></td>
+    <td>Instagram</td>
+    <td><code>ranit_manik_</code></td>
+    <td><a href="https://www.instagram.com/ranit_manik_/" target="_blank">Instagram</a></td>
+  </tr>
+  <tr>
+    <td><img src="https://upload.wikimedia.org/wikipedia/commons/6/6c/Facebook_Logo_2023.png" width="20" /></td>
+    <td>Facebook</td>
+    <td><code>RanitKumarManik</code></td>
+    <td><a href="https://www.facebook.com/RanitKumarManik/" target="_blank">Facebook</a></td>
+</tr>
+</table>
 
 _Feel free to reach out if you have questions or just want to chat about web adventures!_
 
