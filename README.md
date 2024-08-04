@@ -160,23 +160,24 @@ The project structure is as follows:
 
 ```
 FireSign/
-├── public # Static assets
-├── src # Main source code
-│   ├── assets # Images and other assets
-│   ├── components # React components
-│   ├── routes # Application routes
+├── public/ # Static assets (e.g., favicon, manifest)
+├── src/ # Main source code
+│   ├── assets/ # Images and other static assets
+│   ├── components/ # Reusable React components
+│   ├── routes/ # Application routes and route components
+│   ├── context/ # Application contexts for state management
 │   ├── App.jsx # Main application component
-│   ├── main.jsx # Entry point for React application
-│   ├── index.scss # Global styles
-│   └── context # Application contexts
-├── .env.example # Environment variable template
-├── .gitignore # Files to be ignored by Git
-├── .prettierrc # Prettier configuration
-├── index.html # HTML template
-├── .eslintrc.cjs # ESLint configuration
-├── vite.config.js # Vite configuration
-├── package.json # Project dependencies and scripts
-└── README.md # Project documentation
+│   ├── main.jsx # Entry point for the React application
+│   └── index.scss # Global styles for the application
+├── .env.example # Template for environment variables
+├── .gitignore # Specifies files and directories to ignore in Git
+├── .prettierrc # Configuration file for Prettier code formatting
+├── .eslintrc.cjs # Configuration file for ESLint
+├── index.html # HTML template for the application
+├── vite.config.js # Vite configuration file
+├── package.json # Project dependencies, scripts, and metadata
+└── README.md # Documentation for the project
+
 ```
 
 ## Contributing
