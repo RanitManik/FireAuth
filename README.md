@@ -1,7 +1,7 @@
 <div align="center">
   <img height="70px" src="https://github.com/user-attachments/assets/6d460dda-4c32-4c81-9c58-c868840d901c" alt="FireSign favicon">
   <h1>FireSign – Secure Authentication Made Easy</h1>
-  <a href="https://firesign.vercel.app/">View Demo</a>
+  <a href="https://firesign.ranitmanik.live">View Demo</a>
   ·
   <a href=".github/ISSUE_TEMPLATE/bug_report.md">Report Bug</a>
   ·
@@ -13,7 +13,7 @@
   ![GitHub repo size](https://img.shields.io/github/repo-size/RanitManik/FireSign)
   ![GitHub Discussions](https://img.shields.io/github/discussions/RanitManik/FireSign)
   ![GitHub License](https://img.shields.io/github/license/RanitManik/FireSign)
-  ![Vercel Deploy](https://deploy-badge.vercel.app/vercel/firesign)
+  ![Netlify Status](https://api.netlify.com/api/v1/badges/d0ce3dc4-4e21-43c4-9054-b4ec5b705890/deploy-status)
   ![wakatime](https://wakatime.com/badge/github/RanitManik/FireSign.svg)
   
 </div>  
