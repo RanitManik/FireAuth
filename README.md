@@ -13,6 +13,7 @@
   ![GitHub repo size](https://img.shields.io/github/repo-size/RanitManik/FireSign)
   ![GitHub Discussions](https://img.shields.io/github/discussions/RanitManik/FireSign)
   ![GitHub License](https://img.shields.io/github/license/RanitManik/FireSign)
+  <br/>
   ![Netlify Status](https://api.netlify.com/api/v1/badges/d0ce3dc4-4e21-43c4-9054-b4ec5b705890/deploy-status)
   ![wakatime](https://wakatime.com/badge/github/RanitManik/FireSign.svg)
   
