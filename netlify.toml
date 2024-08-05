@@ -1,0 +1,8 @@
+[build]
+publish = "dist"
+ignore = "test"
+
+[[redirects]]
+from = "/*"
+to = "/index.html"
+status = 200
