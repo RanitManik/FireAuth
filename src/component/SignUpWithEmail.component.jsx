@@ -8,7 +8,7 @@ import { toast, Toaster } from "sonner";
 import { useEffect, useState } from "react";
 import { useFirebase } from "../context/firebase.context.jsx";
 
-const SignUpWithEmail = () => {
+const SignUpWithEmailComponent = () => {
   const { signUpUserWithEmailAndPassword, isLoggedIn } = useFirebase();
   const navigate = useNavigate();
 
@@ -175,4 +175,4 @@ const ProfileImageUploader = ({ profileImage, handleFileChange }) => (
   </div>
 );
 
-export default SignUpWithEmail;
+export default SignUpWithEmailComponent;

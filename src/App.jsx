@@ -4,10 +4,12 @@ import { SignInByEmailRoute } from "./route/SignInByEmail.route.jsx";
 import { SignUpByEmailRoute } from "./route/SignUpByEmail.route.jsx";
 import { SignUpByPhoneRoute } from "./route/SignUpByPhone.route.jsx";
 import { SignInByPhoneRoute } from "./route/SignInByPhone.route.jsx";
+import { ErrorRoute } from "./route/Error.route.jsx";
 
 const App = () => {
   return (
     <Routes>
+      <Route index path="*" element={<ErrorRoute />}></Route>
       <Route index path="/" element={<Home />}></Route>
       <Route index path="/login/email" element={<SignInByEmailRoute />}></Route>
       <Route

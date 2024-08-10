@@ -12,5 +12,5 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         <App />
       </FirebaseProvider>
     </BrowserRouter>
-  </React.StrictMode>
+  </React.StrictMode>,
 );

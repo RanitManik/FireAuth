@@ -5,7 +5,7 @@ export default {
     extend: {
       colors: {},
       fontFamily: {
-        body: ["\"Open Sans\"", "sans-serif"]
+        body: ["sans-serif", "Arial", "Helvetica"]
       },
       fontSize: {
         body: "1rem"

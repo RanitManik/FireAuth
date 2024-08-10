@@ -3,19 +3,21 @@ import GetStartedComponent from "../component/GetStarted.component.jsx";
 import { useFirebase } from "../context/firebase.context.jsx";
 import ProfileComponent from "../component/Profile.component.jsx";
 import LoaderCircleComponent from "../component/LoaderCircle.component.jsx";
+import { Toaster } from "sonner";
 
 const HomeRoute = () => {
   const { user, isLoggedIn, loading, updatingProfile } = useFirebase();
-  console.log(isLoggedIn);
-  console.log(user);
+  // console.log(isLoggedIn);
+  // console.log(user);
 
   if (loading || updatingProfile) {
     return <LoaderCircleComponent />;
   } else if (!isLoggedIn) {
     return (
-      <div className="m-auto max-w-fit duration-500 animate-in fade-in">
+      <div className="m-auto max-w-fit px-4 duration-500 animate-in fade-in">
         <WelcomeComponent />
         <GetStartedComponent />
+        <Toaster richColors />
       </div>
     );
   }

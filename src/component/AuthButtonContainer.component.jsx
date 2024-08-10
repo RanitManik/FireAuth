@@ -2,7 +2,7 @@ import { assets } from "../asset/assets.js";
 import AuthButton from "./AuthButton.component.jsx";
 import { useFirebase } from "../context/firebase.context.jsx";
 
-const AuthBtnContainerComponent = () => {
+const AuthBtnContainerComponent = ({ onError }) => {
   const {
     signInWithGooglePopup,
     signInWithGithubPopup,
@@ -62,6 +62,16 @@ const AuthBtnContainerComponent = () => {
     },
   ];
 
+  const onClickHandler = async (onClick) => {
+    try {
+      await onClick();
+      console.log("Successfully Signed in...");
+    } catch (error) {
+      console.error(error);
+      onError(error);
+    }
+  };
+
   return (
     <div className="grid w-full gap-4 md:grid-cols-2">
       {authButtons.map((btn, index) => (
@@ -71,7 +81,9 @@ const AuthBtnContainerComponent = () => {
           altText={btn.altText}
           buttonText={btn.buttonText}
           route={btn.route}
-          authFunction={btn.authFunction}
+          authFunction={
+            btn.authFunction && (() => onClickHandler(btn.authFunction))
+          }
         />
       ))}
     </div>
