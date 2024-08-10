@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-const colors = ["#919191", "#b21e1e", "#21a221", "#3131bb", "#ff00ff"]; // Array of colors
+const colors = ["#d62d20", "#0057e7", "#008744", "#ffa700"]; // Array of colors
 
 const LoaderCircleComponent = () => {
   const [colorIndex, setColorIndex] = useState(0);
@@ -20,7 +20,7 @@ const LoaderCircleComponent = () => {
         viewBox="0 0 24 24"
         fill="none"
         stroke={colors[colorIndex]}
-        strokeWidth="2"
+        strokeWidth="1"
         strokeLinecap="round"
         strokeLinejoin="round"
         className="h-20 w-20 animate-spin transition-colors duration-1000 lg:h-32 lg:w-32"
