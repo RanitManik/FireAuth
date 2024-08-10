@@ -7,8 +7,8 @@ import { Toaster } from "sonner";
 
 const HomeRoute = () => {
   const { user, isLoggedIn, loading, updatingProfile } = useFirebase();
-  // console.log(isLoggedIn);
-  // console.log(user);
+  console.log(isLoggedIn);
+  console.log(user);
 
   if (loading || updatingProfile) {
     return <LoaderCircleComponent />;

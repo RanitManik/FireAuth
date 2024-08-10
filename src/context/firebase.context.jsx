@@ -15,6 +15,7 @@ import {
   TwitterAuthProvider,
   updateProfile,
 } from "firebase/auth";
+import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
 
 // Firebase configuration
 const firebaseConfig = {
@@ -47,6 +48,7 @@ const FirebaseContext = createContext(null);
 // Firebase Provider Component
 export const FirebaseProvider = ({ children }) => {
   const firebaseAuth = getAuth();
+  const storage = getStorage();
 
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -74,32 +76,56 @@ export const FirebaseProvider = ({ children }) => {
   const signInWithYahooPopup = () =>
     signInWithPopup(firebaseAuth, YahooProvider);
 
-  const signUpUserWithEmailAndPassword = async (
+  const uploadProfileImage = async (file) => {
+    const storageRef = ref(storage, `profile_images/${file}`);
+    await uploadBytes(storageRef, file);
+    return await getDownloadURL(storageRef);
+  };
+
+  const signUpUserWithEmailAndPasswordWithImage = async (
     email,
     password,
     displayName,
-    photoURL,
+    localImageURL,
   ) => {
-    try {
-      const userCredential = await createUserWithEmailAndPassword(
-        firebaseAuth,
-        email,
-        password,
-      );
+    const userCredential = await createUserWithEmailAndPassword(
+      firebaseAuth,
+      email,
+      password,
+    );
 
-      if (userCredential && userCredential.user) {
-        setUpdatingProfile(true);
-        const user = userCredential.user;
-        await updateProfile(user, { displayName, photoURL });
-        console.log("Successfully Signed up!");
-        setUpdatingProfile(false);
-      } else {
-        setError("User credential is undefined");
-      }
-    } catch (error) {
-      console.error("Error signing up:", error);
-      setError(error.message);
+    if (userCredential && userCredential.user) {
+      setUpdatingProfile(true);
+      const user = userCredential.user;
+      await updateProfile(user, { displayName });
+      const photoURL = await uploadProfileImage(localImageURL);
+      await updateProfile(user, { photoURL });
+      console.log("Successfully Signed up!");
       setUpdatingProfile(false);
+    } else {
+      setError("User credential is undefined");
+    }
+  };
+
+  const signUpUserWithEmailAndPasswordWithOutImage = async (
+    email,
+    password,
+    displayName,
+  ) => {
+    const userCredential = await createUserWithEmailAndPassword(
+      firebaseAuth,
+      email,
+      password,
+    );
+
+    if (userCredential && userCredential.user) {
+      setUpdatingProfile(true);
+      const user = userCredential.user;
+      await updateProfile(user, { displayName });
+      console.log("Successfully Signed up!");
+      setUpdatingProfile(false);
+    } else {
+      setError("User credential is undefined");
     }
   };
 
@@ -129,7 +155,8 @@ export const FirebaseProvider = ({ children }) => {
         signInWithFacebookPopup,
         signInWithMicrosoftPopup,
         signInWithYahooPopup,
-        signUpUserWithEmailAndPassword,
+        signUpUserWithEmailAndPasswordWithImage,
+        signUpUserWithEmailAndPasswordWithOutImage,
         signInAuthUserWithEmailAndPassword,
         signOutUser,
         onAuthStateChangedListener,

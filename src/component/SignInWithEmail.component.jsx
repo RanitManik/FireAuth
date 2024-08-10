@@ -7,6 +7,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useFirebase } from "../context/firebase.context.jsx";
 import { toast } from "sonner";
+import useErrorHandlerComponent from "../hooks/LoginErrorHandler.hook.jsx";
 
 const SignInWithEmailComponent = () => {
   const { signInAuthUserWithEmailAndPassword, user } = useFirebase();
@@ -21,6 +22,7 @@ const SignInWithEmailComponent = () => {
   const checkBoxLabel = <>Remember me</>;
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const { generateErrorMessage } = useErrorHandlerComponent();
 
   const formSubmissionHandler = async (e) => {
     e.preventDefault();
@@ -36,7 +38,7 @@ const SignInWithEmailComponent = () => {
     toast.promise(signInPromise(), {
       loading: "Loading...",
       success: "Sign-in successful",
-      error: "Sign-in failed. Please check your credentials and try again.",
+      error: (error) => generateErrorMessage(error.code),
     });
   };
 

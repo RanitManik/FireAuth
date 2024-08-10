@@ -7,9 +7,14 @@ import { Link, useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import { useEffect, useState } from "react";
 import { useFirebase } from "../context/firebase.context.jsx";
+import useErrorHandlerComponent from "../hooks/LoginErrorHandler.hook.jsx";
 
 const SignUpWithEmailComponent = () => {
-  const { signUpUserWithEmailAndPassword, isLoggedIn } = useFirebase();
+  const {
+    signUpUserWithEmailAndPasswordWithImage,
+    signUpUserWithEmailAndPasswordWithOutImage,
+    isLoggedIn,
+  } = useFirebase();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -21,6 +26,7 @@ const SignUpWithEmailComponent = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmedPassword, setConfirmedPassword] = useState("");
+  const { generateErrorMessage } = useErrorHandlerComponent();
 
   const handleFileChange = (e) => {
     const file = e.target.files[0];
@@ -29,12 +35,14 @@ const SignUpWithEmailComponent = () => {
     const maxSizeMB = 1;
     const maxSizeBytes = maxSizeMB * 1024 * 1024;
     if (file.size > maxSizeBytes) {
-      return toast.error("Maximum file size is 1MB");
+      toast.error("Maximum file size is 1MB");
+      return;
     }
 
     const allowedTypes = ["image/jpeg", "image/png", "image/gif"];
     if (!allowedTypes.includes(file.type)) {
-      return toast.error("Allowed file types are .jpg, .jpeg, .png, .gif");
+      toast.error("Allowed file types are .jpg, .jpeg, .png, .gif");
+      return;
     }
 
     setProfileImage(file);
@@ -49,22 +57,25 @@ const SignUpWithEmailComponent = () => {
       return toast.error("Password must be at least 8 characters.");
 
     const signUpPromise = async () => {
-      try {
-        const photoURL = profileImage
-          ? URL.createObjectURL(profileImage)
-          : null;
-        await signUpUserWithEmailAndPassword(email, password, name, photoURL);
-        console.log("User Successfully created...");
-      } catch (error) {
-        console.error("Error during sign-up:", error);
-        throw error;
+      if (profileImage !== null) {
+        await signUpUserWithEmailAndPasswordWithImage(
+          email,
+          password,
+          name,
+          profileImage,
+        );
+      } else {
+        await signUpUserWithEmailAndPasswordWithOutImage(email, password, name);
       }
     };
 
     toast.promise(signUpPromise(), {
       loading: "Loading...",
       success: "Sign-up successful",
-      error: "Sign-up failed. Please check your credentials and try again.",
+      error: (error) => {
+        console.log(error);
+        return generateErrorMessage(error.code);
+      },
     });
   };
 
