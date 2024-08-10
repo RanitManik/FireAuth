@@ -14,7 +14,7 @@ const HomeRoute = () => {
     return <LoaderCircleComponent />;
   } else if (!isLoggedIn) {
     return (
-      <div className="m-auto max-w-fit px-4 duration-500 animate-in fade-in">
+      <div className="m-auto max-w-fit px-4 py-8 duration-500 animate-in fade-in">
         <WelcomeComponent />
         <GetStartedComponent />
         <Toaster richColors />
