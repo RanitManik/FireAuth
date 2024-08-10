@@ -1,5 +1,5 @@
 <div align="center">
-  <img height="70px" src="https://github.com/user-attachments/assets/6d460dda-4c32-4c81-9c58-c868840d901c" alt="FireSign favicon">
+  <img height="70px" src="https://github.com/user-attachments/assets/6d460dda-4c32-4c81-9c58-c868840d901c" alt="🔥">
   <h1>FireSign – Secure Authentication Made Easy</h1>
   <a href="https://firesign.ranitmanik.live">View Demo</a>
   ·
