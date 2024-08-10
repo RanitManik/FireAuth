@@ -6,7 +6,7 @@ import HorizontalRuler from "../component/HorizontalRuler.component.jsx";
 import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useFirebase } from "../context/firebase.context.jsx";
-import { toast, Toaster } from "sonner";
+import { toast } from "sonner";
 
 const SignInWithEmailComponent = () => {
   const { signInAuthUserWithEmailAndPassword, user } = useFirebase();
@@ -82,7 +82,6 @@ const SignInWithEmailComponent = () => {
           Choose a different Method for Signing
         </Link>
       </div>
-      <Toaster richColors />
     </>
   );
 };

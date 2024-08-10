@@ -4,7 +4,7 @@ import ButtonComponent from "../component/Button.component.jsx";
 import LinkTextComponent from "../component/LinkText.component.jsx";
 import HorizontalRuler from "../component/HorizontalRuler.component.jsx";
 import { Link, useNavigate } from "react-router-dom";
-import { toast, Toaster } from "sonner";
+import { toast } from "sonner";
 import { useEffect, useState } from "react";
 import { useFirebase } from "../context/firebase.context.jsx";
 
@@ -137,7 +137,6 @@ const SignUpWithEmailComponent = () => {
           Choose a different Method for Signing
         </Link>
       </div>
-      <Toaster richColors />
     </>
   );
 };
