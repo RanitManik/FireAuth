@@ -1,16 +1,14 @@
 import WelcomeComponent from "../component/Welcome.component.jsx";
 import GetStartedComponent from "../component/GetStarted.component.jsx";
-import { useFirebase } from "../context/firebase.context.jsx";
+import { useFirebase } from "../context/Firebase.context.jsx";
 import ProfileComponent from "../component/Profile.component.jsx";
 import LoaderCircleComponent from "../component/LoaderCircle.component.jsx";
 import { Toaster } from "sonner";
 
 const HomeRoute = () => {
-  const { user, isLoggedIn, loading, updatingProfile } = useFirebase();
-  console.log(isLoggedIn);
-  console.log(user);
+  const { user, isLoggedIn, loading } = useFirebase();
 
-  if (loading || updatingProfile) {
+  if (loading) {
     return <LoaderCircleComponent />;
   } else if (!isLoggedIn) {
     return (

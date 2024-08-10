@@ -6,7 +6,7 @@ import HorizontalRuler from "../component/HorizontalRuler.component.jsx";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import { useEffect, useState } from "react";
-import { useFirebase } from "../context/firebase.context.jsx";
+import { useFirebase } from "../context/Firebase.context.jsx";
 import useErrorHandlerComponent from "../hooks/LoginErrorHandler.hook.jsx";
 
 const SignUpWithEmailComponent = () => {

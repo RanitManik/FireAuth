@@ -1,6 +1,6 @@
 import { assets } from "../asset/assets.js";
 import AuthButton from "./AuthButton.component.jsx";
-import { useFirebase } from "../context/firebase.context.jsx";
+import { useFirebase } from "../context/Firebase.context.jsx";
 
 const AuthBtnContainerComponent = ({ onError }) => {
   const {

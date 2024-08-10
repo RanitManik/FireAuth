@@ -52,7 +52,6 @@ export const FirebaseProvider = ({ children }) => {
 
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [updatingProfile, setUpdatingProfile] = useState(false);
   const [error, setError] = useState(null);
 
   useEffect(() => {
@@ -95,13 +94,13 @@ export const FirebaseProvider = ({ children }) => {
     );
 
     if (userCredential && userCredential.user) {
-      setUpdatingProfile(true);
+      setLoading(true);
       const user = userCredential.user;
       await updateProfile(user, { displayName });
       const photoURL = await uploadProfileImage(localImageURL);
       await updateProfile(user, { photoURL });
       console.log("Successfully Signed up!");
-      setUpdatingProfile(false);
+      setLoading(false);
     } else {
       setError("User credential is undefined");
     }
@@ -119,11 +118,11 @@ export const FirebaseProvider = ({ children }) => {
     );
 
     if (userCredential && userCredential.user) {
-      setUpdatingProfile(true);
+      setLoading(true);
       const user = userCredential.user;
       await updateProfile(user, { displayName });
       console.log("Successfully Signed up!");
-      setUpdatingProfile(false);
+      setLoading(false);
     } else {
       setError("User credential is undefined");
     }
@@ -147,7 +146,6 @@ export const FirebaseProvider = ({ children }) => {
         user,
         isLoggedIn,
         loading,
-        updatingProfile,
         error,
         signInWithGooglePopup,
         signInWithGithubPopup,
