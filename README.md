@@ -23,7 +23,7 @@
 
 Welcome to **FireSign – *Secure Authentication Made Easy***, a React-based authenticator app that simplifies the sign-up and sign-in processes, including various OAuth provider integrations. This app demonstrates the integration of Firebase and React for a seamless authentication experience. 
 
-This project represents my early exploration into Firebase and its services, where I aimed to build a solid understanding of the fundamentals.
+_This project represents my early exploration into Firebase and its services, where I aimed to build a solid understanding of the fundamentals._
 
 ## Table of Contents
 
