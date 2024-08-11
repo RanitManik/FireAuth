@@ -3,6 +3,7 @@
     "firebase": "^10.12.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-phone-input-2": "^2.15.1",
     "react-router-dom": "^6.24.0",
     "sonner": "^1.5.0"
   },

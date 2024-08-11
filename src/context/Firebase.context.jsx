@@ -160,6 +160,7 @@ export const FirebaseProvider = ({ children }) => {
     return (
         <FirebaseContext.Provider
             value={{
+                firebaseAuth,
                 user,
                 isLoggedIn,
                 loading,
@@ -175,6 +176,7 @@ export const FirebaseProvider = ({ children }) => {
                 signInAuthUserWithEmailAndPassword,
                 signOutUser,
                 onAuthStateChangedListener,
+                uploadProfileImage,
             }}
         >
             {children}

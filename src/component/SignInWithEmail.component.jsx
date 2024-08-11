@@ -3,11 +3,12 @@ import CheckboxComponent from "../component/Checkbox.component.jsx";
 import ButtonComponent from "../component/Button.component.jsx";
 import LinkTextComponent from "../component/LinkText.component.jsx";
 import HorizontalRuler from "../component/HorizontalRuler.component.jsx";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useFirebase } from "../context/Firebase.context.jsx";
 import { toast } from "sonner";
 import useErrorHandlerComponent from "../hooks/LoginErrorHandler.hook.jsx";
+import { DifferentSignInMethodComponent } from "./DifferentSignInMethod.component.jsx";
 
 const SignInWithEmailComponent = () => {
     const { signInAuthUserWithEmailAndPassword, user } = useFirebase();
@@ -44,7 +45,7 @@ const SignInWithEmailComponent = () => {
 
     return (
         <>
-            <div className="grid content-center gap-6 bg-gray-100/50 animate-in fade-in">
+            <div className="grid content-center gap-4 bg-gray-100/50 animate-in fade-in">
                 <form
                     onSubmit={formSubmissionHandler}
                     className="m-auto max-h-fit w-fit min-w-full rounded-xl bg-white p-8 text-body shadow sm:min-w-[30rem]"
@@ -79,12 +80,7 @@ const SignInWithEmailComponent = () => {
                         <LinkTextComponent to="/signup/email" text="Sign up" />
                     </div>
                 </form>
-                <Link
-                    to="/"
-                    className="m-auto w-fit rounded-lg bg-white px-6 py-3 text-center font-bold text-blue-500 underline-offset-2 shadow-md transition hover:text-blue-600 hover:underline"
-                >
-                    Choose a different Method for Signing
-                </Link>
+                <DifferentSignInMethodComponent />
             </div>
         </>
     );

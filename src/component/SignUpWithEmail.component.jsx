@@ -3,11 +3,13 @@ import CheckboxComponent from "../component/Checkbox.component.jsx";
 import ButtonComponent from "../component/Button.component.jsx";
 import LinkTextComponent from "../component/LinkText.component.jsx";
 import HorizontalRuler from "../component/HorizontalRuler.component.jsx";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import { useEffect, useState } from "react";
 import { useFirebase } from "../context/Firebase.context.jsx";
 import useErrorHandlerComponent from "../hooks/LoginErrorHandler.hook.jsx";
+import { ProfileImageUploader } from "./ProfileImage.component.jsx";
+import { DifferentSignInMethodComponent } from "./DifferentSignInMethod.component.jsx";
 
 const SignUpWithEmailComponent = () => {
     const {
@@ -85,7 +87,7 @@ const SignUpWithEmailComponent = () => {
 
     return (
         <>
-            <div className="grid content-center gap-6 bg-gray-100/50 animate-in fade-in">
+            <div className="grid content-center gap-4 bg-gray-100/50 animate-in fade-in">
                 <form
                     onSubmit={handleSubmit}
                     className="m-auto max-h-fit w-fit min-w-full rounded-xl bg-white p-8 text-body shadow sm:min-w-[30rem]"
@@ -150,50 +152,10 @@ const SignUpWithEmailComponent = () => {
                         <LinkTextComponent to="/login/email" text="Log in" />
                     </div>
                 </form>
-                <Link
-                    to="/"
-                    className="m-auto w-fit rounded-lg bg-white px-6 py-3 text-center font-bold text-blue-500 underline-offset-2 shadow-md transition hover:text-blue-600 hover:underline"
-                >
-                    Choose a different Method for Signing
-                </Link>
+                <DifferentSignInMethodComponent />
             </div>
         </>
     );
 };
-
-const ProfileImageUploader = ({ profileImage, handleFileChange }) => (
-    <div className="my-4 flex flex-col items-start gap-6 md:flex-row md:items-center">
-        <div className="flex h-28 w-28 items-center justify-center rounded-2xl bg-gray-200">
-            {profileImage ? (
-                <img
-                    className="h-full w-full rounded-2xl object-cover"
-                    src={URL.createObjectURL(profileImage)}
-                    alt="Profile"
-                />
-            ) : (
-                <span className="text-gray-400">No image</span>
-            )}
-        </div>
-        <div>
-            <label
-                className="mb-2 inline-block cursor-pointer rounded-lg border-2 border-gray-200 px-4 py-1 hover:bg-gray-50 active:border-blue-600"
-                htmlFor="profileImage"
-            >
-                Upload image
-            </label>
-            <input
-                id="profileImage"
-                name="profileImage"
-                type="file"
-                accept=".jpg, .jpeg, .png, .gif"
-                onChange={handleFileChange}
-                className="hidden"
-            />
-            <p className="text-gray-500">
-                .jpg, .jpeg, .png, .gif files up to 1MB.
-            </p>
-        </div>
-    </div>
-);
 
 export default SignUpWithEmailComponent;

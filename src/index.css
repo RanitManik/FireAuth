@@ -9,3 +9,8 @@ body {
 #root {
     @apply w-full;
 }
+
+/* Styles for the react phone input component */
+.react-tel-input .form-control {
+    @apply h-fit w-full rounded-lg border-2 border-gray-200 bg-transparent py-3 text-base text-gray-900 caret-blue-600 transition focus:border-blue-600 focus:shadow-md focus:shadow-blue-100 focus:outline-none focus:ring-0;
+}

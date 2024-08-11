@@ -18,28 +18,60 @@ const ProfileComponent = ({ user }) => {
                     alt="User Avatar"
                 />
             </div>
-            <div>
-                <label className="mb-1 block font-semibold" htmlFor="name">
-                    Name
-                </label>
-                <input
-                    className="w-full rounded-md border px-4 py-2 text-gray-900 caret-blue-600 shadow focus:border-blue-400 focus:shadow-blue-400 focus:outline-blue-400 focus:ring-0"
-                    id="name"
-                    readOnly
-                    value={user.displayName || "User"}
-                />
-            </div>
-            <div>
-                <label className="mb-1 block font-semibold" htmlFor="email">
-                    Email
-                </label>
-                <input
-                    className="w-full rounded-md border px-4 py-2 text-gray-900 caret-blue-600 shadow focus:border-blue-400 focus:shadow-blue-400 focus:outline-blue-400 focus:ring-0"
-                    id="email"
-                    readOnly
-                    value={user.email || "No email found"}
-                />
-            </div>
+            {user.displayName && (
+                <div>
+                    <label className="mb-1 block font-semibold" htmlFor="name">
+                        Name
+                    </label>
+                    <input
+                        className="w-full rounded-md border px-4 py-2 text-gray-900 caret-blue-600 shadow focus:border-blue-400 focus:shadow-blue-400 focus:outline-blue-400 focus:ring-0"
+                        id="name"
+                        readOnly
+                        value={user.displayName}
+                    />
+                </div>
+            )}
+            {user.email && (
+                <div>
+                    <label className="mb-1 block font-semibold" htmlFor="email">
+                        Email
+                    </label>
+                    <input
+                        className="w-full rounded-md border px-4 py-2 text-gray-900 caret-blue-600 shadow focus:border-blue-400 focus:shadow-blue-400 focus:outline-blue-400 focus:ring-0"
+                        id="email"
+                        readOnly
+                        value={user.email}
+                    />
+                </div>
+            )}
+
+            {user.phoneNumber && (
+                <div>
+                    <label className="mb-1 block font-semibold" htmlFor="email">
+                        Phone
+                    </label>
+                    <input
+                        className="w-full rounded-md border px-4 py-2 text-gray-900 caret-blue-600 shadow focus:border-blue-400 focus:shadow-blue-400 focus:outline-blue-400 focus:ring-0"
+                        id="email"
+                        readOnly
+                        value={user.phoneNumber}
+                    />
+                </div>
+            )}
+
+            {user.uid && (
+                <div>
+                    <label className="mb-1 block font-semibold" htmlFor="email">
+                        User ID
+                    </label>
+                    <input
+                        className="w-full rounded-md border px-4 py-2 text-gray-900 caret-blue-600 shadow focus:border-blue-400 focus:shadow-blue-400 focus:outline-blue-400 focus:ring-0"
+                        id="email"
+                        readOnly
+                        value={user.uid}
+                    />
+                </div>
+            )}
             <ButtonComponent onClick={signOutUser} text="Log out" />
         </div>
     );
