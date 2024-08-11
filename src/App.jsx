@@ -7,24 +7,32 @@ import { SignInByPhoneRoute } from "./route/SignInByPhone.route.jsx";
 import { ErrorRoute } from "./route/Error.route.jsx";
 
 const App = () => {
-  return (
-    <Routes>
-      <Route index path="*" element={<ErrorRoute />}></Route>
-      <Route index path="/" element={<Home />}></Route>
-      <Route index path="/login/email" element={<SignInByEmailRoute />}></Route>
-      <Route
-        index
-        path="/signup/email"
-        element={<SignUpByEmailRoute />}
-      ></Route>
-      <Route index path="/login/phone" element={<SignInByPhoneRoute />}></Route>
-      <Route
-        index
-        path="/signup/phone"
-        element={<SignUpByPhoneRoute />}
-      ></Route>
-    </Routes>
-  );
+    return (
+        <Routes>
+            <Route index path="*" element={<ErrorRoute />}></Route>
+            <Route index path="/" element={<Home />}></Route>
+            <Route
+                index
+                path="/login/email"
+                element={<SignInByEmailRoute />}
+            ></Route>
+            <Route
+                index
+                path="/signup/email"
+                element={<SignUpByEmailRoute />}
+            ></Route>
+            <Route
+                index
+                path="/login/phone"
+                element={<SignInByPhoneRoute />}
+            ></Route>
+            <Route
+                index
+                path="/signup/phone"
+                element={<SignUpByPhoneRoute />}
+            ></Route>
+        </Routes>
+    );
 };
 
 export default App;

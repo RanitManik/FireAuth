@@ -3,9 +3,9 @@
 @tailwind utilities;
 
 body {
-  @apply relative grid min-h-svh place-items-center content-center bg-gray-100 font-body;
+    @apply relative grid min-h-svh place-items-center content-center bg-gray-100 font-body;
 }
 
 #root {
-  @apply w-full;
+    @apply w-full;
 }

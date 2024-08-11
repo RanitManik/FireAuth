@@ -9,13 +9,13 @@ import yahoo from "./logo/yahoo.svg";
 import userIcon from "./icons/user-icon.svg";
 
 export const assets = {
-  email,
-  phone,
-  google,
-  github,
-  twitter,
-  facebook,
-  microsoft,
-  yahoo,
-  userIcon,
+    email,
+    phone,
+    google,
+    github,
+    twitter,
+    facebook,
+    microsoft,
+    yahoo,
+    userIcon,
 };

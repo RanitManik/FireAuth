@@ -7,27 +7,27 @@ import { FirebaseProvider } from "./context/Firebase.context.jsx";
 
 // eslint-disable-next-line react-refresh/only-export-components
 const Root = () => {
-  const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const handleLoad = () => setLoading(false);
-    window.addEventListener("load", handleLoad);
-    return () => window.removeEventListener("load", handleLoad);
-  }, []);
+    useEffect(() => {
+        const handleLoad = () => setLoading(false);
+        window.addEventListener("load", handleLoad);
+        return () => window.removeEventListener("load", handleLoad);
+    }, []);
 
-  if (loading) {
-    return null;
-  }
+    if (loading) {
+        return null;
+    }
 
-  return (
-    <React.StrictMode>
-      <BrowserRouter>
-        <FirebaseProvider>
-          <App />
-        </FirebaseProvider>
-      </BrowserRouter>
-    </React.StrictMode>
-  );
+    return (
+        <React.StrictMode>
+            <BrowserRouter>
+                <FirebaseProvider>
+                    <App />
+                </FirebaseProvider>
+            </BrowserRouter>
+        </React.StrictMode>
+    );
 };
 
 ReactDOM.createRoot(document.getElementById("root")).render(<Root />);
