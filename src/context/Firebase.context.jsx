@@ -17,7 +17,6 @@ import {
 } from "firebase/auth";
 import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
 import { initializeAppCheck, ReCaptchaV3Provider } from "firebase/app-check";
-import * as recaptchaVerifier from "react-dom";
 
 // Firebase configuration
 const firebaseConfig = {
