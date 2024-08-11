@@ -17,7 +17,6 @@ const ErrorMessages = {
     "auth/wrong-password": "The password is incorrect. Please try again.",
     "auth/user-not-found":
         "No user found with this email. Please check your email or sign up.",
-    // Phone-related errors
     "auth/invalid-app-credential":
         "The provided credentials are invalid. Please check and try again.",
     "auth/invalid-phone-number":
@@ -36,6 +35,8 @@ const ErrorMessages = {
         "The recipient email is invalid. Please check and try again.",
     "auth/recaptcha-verifier-not-created":
         "Recaptcha verifier could not be initialized. Please reload the page and try again.",
+    "auth/too-many-requests":
+        "You have made too many requests in a short period of time. Please try again later.",
 };
 
 const useErrorHandlerComponent = () => {
