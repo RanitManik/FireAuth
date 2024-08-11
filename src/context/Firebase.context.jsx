@@ -16,6 +16,7 @@ import {
   updateProfile,
 } from "firebase/auth";
 import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
+import { initializeAppCheck, ReCaptchaV3Provider } from "firebase/app-check";
 
 // Firebase configuration
 const firebaseConfig = {
@@ -41,6 +42,17 @@ const twitterProvider = new TwitterAuthProvider();
 const facebookProvider = new FacebookAuthProvider();
 const MicrosoftProvider = new OAuthProvider("microsoft.com");
 const YahooProvider = new OAuthProvider("yahoo.com");
+
+// Enable Firebase analytics
+// eslint-disable-next-line no-unused-vars
+const analytics = getAnalytics(firebaseApp);
+
+// Enable Firebase AppCheck
+// eslint-disable-next-line no-unused-vars
+const appCheck = initializeAppCheck(firebaseApp, {
+  provider: new ReCaptchaV3Provider(import.meta.env.VITE_RECAPTCHA_SITE_KEY),
+  isTokenAutoRefreshEnabled: true,
+});
 
 // Create context
 const FirebaseContext = createContext(null);
@@ -76,7 +88,10 @@ export const FirebaseProvider = ({ children }) => {
     signInWithPopup(firebaseAuth, YahooProvider);
 
   const uploadProfileImage = async (file) => {
-    const storageRef = ref(storage, `profile_images/${file}`);
+    const storageRef = ref(
+      storage,
+      `profile_images/${Date.now().toString()}-${file.name}`,
+    );
     await uploadBytes(storageRef, file);
     return await getDownloadURL(storageRef);
   };
@@ -165,4 +180,5 @@ export const FirebaseProvider = ({ children }) => {
   );
 };
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const useFirebase = () => useContext(FirebaseContext);

@@ -1,3 +1,4 @@
+// eslint-disable-next-line react-refresh/only-export-components
 const ErrorMessages = {
   "auth/email-already-in-use":
     "This email is already in use. Please use a different email address or sign in.",

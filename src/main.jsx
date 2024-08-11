@@ -5,6 +5,7 @@ import "./index.css";
 import { BrowserRouter } from "react-router-dom";
 import { FirebaseProvider } from "./context/Firebase.context.jsx";
 
+// eslint-disable-next-line react-refresh/only-export-components
 const Root = () => {
   const [loading, setLoading] = useState(true);
 
