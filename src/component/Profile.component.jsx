@@ -4,6 +4,7 @@ import { assets } from "../asset/assets.js";
 import { useState } from "react";
 
 const ProfileComponent = ({ user }) => {
+    console.log(user);
     const { signOutUser } = useFirebase();
     const [profileImageLoading, setProfileImageLoading] = useState(true);
     return (
@@ -34,7 +35,12 @@ const ProfileComponent = ({ user }) => {
             {user.email && (
                 <div>
                     <label className="mb-1 block font-semibold" htmlFor="email">
-                        Email
+                        Email{" "}
+                        {user.emailVerified ? (
+                            <span className="text-green-600">verified</span>
+                        ) : (
+                            <span className="text-red-600">not verified</span>
+                        )}
                     </label>
                     <input
                         className="w-full rounded-md border px-4 py-2 text-gray-900 caret-blue-600 shadow focus:border-blue-400 focus:shadow-blue-400 focus:outline-blue-400 focus:ring-0"
@@ -69,6 +75,34 @@ const ProfileComponent = ({ user }) => {
                         id="email"
                         readOnly
                         value={user.uid}
+                    />
+                </div>
+            )}
+
+            {user.metadata.creationTime && (
+                <div>
+                    <label className="mb-1 block font-semibold" htmlFor="email">
+                        Created At
+                    </label>
+                    <input
+                        className="w-full rounded-md border px-4 py-2 text-gray-900 caret-blue-600 shadow focus:border-blue-400 focus:shadow-blue-400 focus:outline-blue-400 focus:ring-0"
+                        id="email"
+                        readOnly
+                        value={user.metadata.creationTime}
+                    />
+                </div>
+            )}
+
+            {user.metadata.lastSignInTime && (
+                <div>
+                    <label className="mb-1 block font-semibold" htmlFor="email">
+                        Last Signed in At
+                    </label>
+                    <input
+                        className="w-full rounded-md border px-4 py-2 text-gray-900 caret-blue-600 shadow focus:border-blue-400 focus:shadow-blue-400 focus:outline-blue-400 focus:ring-0"
+                        id="email"
+                        readOnly
+                        value={user.metadata.lastSignInTime}
                     />
                 </div>
             )}

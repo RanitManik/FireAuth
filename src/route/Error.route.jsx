@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import ErrorComponent from "../component/Error.component.jsx";
+import BackgroundComponent from "../component/Background.component.jsx";
 
 export const ErrorRoute = () => {
     const navigate = useNavigate();
@@ -16,5 +17,9 @@ export const ErrorRoute = () => {
         actionFunction: actionFunction,
     };
 
-    return <ErrorComponent ERROR_DETAILS={ERROR_DETAILS} />;
+    return (
+        <BackgroundComponent>
+            <ErrorComponent ERROR_DETAILS={ERROR_DETAILS} />
+        </BackgroundComponent>
+    );
 };

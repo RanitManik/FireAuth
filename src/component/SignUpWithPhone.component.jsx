@@ -15,7 +15,6 @@ import { useEffect, useState } from "react";
 import { useFirebase } from "../context/Firebase.context";
 import { ProfileImageUploader } from "./ProfileImage.component.jsx";
 import { toast } from "sonner";
-import LoaderCircleComponent from "./LoaderCircle.component.jsx";
 import useErrorHandlerComponent from "../hooks/LoginErrorHandler.hook.jsx";
 import { DifferentSignInMethodComponent } from "./DifferentSignInMethod.component.jsx";
 
@@ -127,10 +126,6 @@ export const SignUpWithPhoneComponent = () => {
             <LinkTextComponent to="/" text="Privacy" />
         </>
     );
-
-    if (loading) {
-        return <LoaderCircleComponent />;
-    }
 
     return (
         <div className="grid content-center gap-4 bg-gray-100/50 animate-in fade-in">

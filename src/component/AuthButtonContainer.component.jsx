@@ -1,8 +1,10 @@
 import { assets } from "../asset/assets.js";
 import AuthButton from "./AuthButton.component.jsx";
 import { useFirebase } from "../context/Firebase.context.jsx";
+import { toast } from "sonner";
+import useErrorHandlerComponent from "../hooks/LoginErrorHandler.hook.jsx";
 
-const AuthBtnContainerComponent = ({ onError }) => {
+const AuthBtnContainerComponent = () => {
     const {
         signInWithGooglePopup,
         signInWithGithubPopup,
@@ -11,6 +13,8 @@ const AuthBtnContainerComponent = ({ onError }) => {
         signInWithMicrosoftPopup,
         signInWithYahooPopup,
     } = useFirebase();
+    const { generateErrorMessage } = useErrorHandlerComponent();
+
     const authButtons = [
         {
             imgSrc: assets.email,
@@ -63,13 +67,18 @@ const AuthBtnContainerComponent = ({ onError }) => {
     ];
 
     const onClickHandler = async (onClick) => {
-        try {
+        const signInPromise = async () => {
             await onClick();
             console.log("Successfully Signed in...");
-        } catch (error) {
-            console.error(error);
-            onError(error);
-        }
+        };
+        toast.promise(signInPromise(), {
+            loading: "Loading...",
+            success: "Sign-up successful",
+            error: (error) => {
+                console.log(error);
+                return generateErrorMessage(error.code);
+            },
+        });
     };
 
     return (

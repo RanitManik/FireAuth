@@ -4,6 +4,7 @@ import App from "./App.jsx";
 import "./index.css";
 import { BrowserRouter } from "react-router-dom";
 import { FirebaseProvider } from "./context/Firebase.context.jsx";
+import { Toaster } from "sonner";
 
 // eslint-disable-next-line react-refresh/only-export-components
 const Root = () => {
@@ -24,6 +25,7 @@ const Root = () => {
             <BrowserRouter>
                 <FirebaseProvider>
                     <App />
+                    <Toaster richColors />
                 </FirebaseProvider>
             </BrowserRouter>
         </React.StrictMode>

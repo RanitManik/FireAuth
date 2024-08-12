@@ -1,11 +1,10 @@
 import SignUpWithEmailComponent from "../component/SignUpWithEmail.component.jsx";
-import { Toaster } from "sonner";
+import BackgroundComponent from "../component/Background.component.jsx";
 
 export const SignUpByEmailRoute = () => {
     return (
-        <div className="px-4 py-8">
+        <BackgroundComponent>
             <SignUpWithEmailComponent />
-            <Toaster richColors />
-        </div>
+        </BackgroundComponent>
     );
 };

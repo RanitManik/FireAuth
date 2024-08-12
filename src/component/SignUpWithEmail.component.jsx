@@ -10,18 +10,21 @@ import { useFirebase } from "../context/Firebase.context.jsx";
 import useErrorHandlerComponent from "../hooks/LoginErrorHandler.hook.jsx";
 import { ProfileImageUploader } from "./ProfileImage.component.jsx";
 import { DifferentSignInMethodComponent } from "./DifferentSignInMethod.component.jsx";
+import { sendEmailVerification } from "firebase/auth";
 
 const SignUpWithEmailComponent = () => {
     const {
         signUpUserWithEmailAndPasswordWithImage,
         signUpUserWithEmailAndPasswordWithOutImage,
         isLoggedIn,
+        firebaseAuth,
+        loading,
     } = useFirebase();
     const navigate = useNavigate();
 
     useEffect(() => {
-        if (isLoggedIn) navigate("/");
-    }, [isLoggedIn, navigate]);
+        if (isLoggedIn && !loading) navigate("/");
+    }, [isLoggedIn, loading, navigate]);
 
     const [profileImage, setProfileImage] = useState(null);
     const [name, setName] = useState("");
@@ -54,9 +57,9 @@ const SignUpWithEmailComponent = () => {
         e.preventDefault();
 
         if (password !== confirmedPassword)
-            return toast.error("Passwords do not match");
+            return toast.error("passwords do not match");
         if (password.length < 8)
-            return toast.error("Password must be at least 8 characters.");
+            return toast.error("password must be at least 8 characters.");
 
         const signUpPromise = async () => {
             if (profileImage !== null) {
@@ -73,7 +76,20 @@ const SignUpWithEmailComponent = () => {
                     name,
                 );
             }
+            sendEmailVerification(firebaseAuth.currentUser)
+                .then(() => {
+                    console.log("verification email sent successfully.");
+                    toast.success("verification email sent successfully");
+                })
+                .catch((error) => {
+                    console.log(error);
+                    toast.error(
+                        "an error occurred sending Verification email",
+                    );
+                });
         };
+
+        console.log(firebaseAuth);
 
         toast.promise(signUpPromise(), {
             loading: "Loading...",

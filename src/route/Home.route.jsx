@@ -3,20 +3,25 @@ import GetStartedComponent from "../component/GetStarted.component.jsx";
 import { useFirebase } from "../context/Firebase.context.jsx";
 import ProfileComponent from "../component/Profile.component.jsx";
 import LoaderCircleComponent from "../component/LoaderCircle.component.jsx";
-import { Toaster } from "sonner";
+import BackgroundComponent from "../component/Background.component.jsx";
 
 const HomeRoute = () => {
-    const { user, isLoggedIn, loading } = useFirebase();
+    const { user, isLoggedIn, authCheckLoading } = useFirebase();
 
-    if (loading) {
-        return <LoaderCircleComponent />;
+    if (authCheckLoading) {
+        return (
+            <BackgroundComponent>
+                <LoaderCircleComponent />
+            </BackgroundComponent>
+        );
     } else if (!isLoggedIn) {
         return (
-            <div className="m-auto max-w-fit px-4 py-8 duration-500 animate-in fade-in">
-                <WelcomeComponent />
-                <GetStartedComponent />
-                <Toaster richColors />
-            </div>
+            <BackgroundComponent>
+                <div className="m-auto max-w-fit duration-500 animate-in fade-in">
+                    <WelcomeComponent />
+                    <GetStartedComponent />
+                </div>
+            </BackgroundComponent>
         );
     }
 

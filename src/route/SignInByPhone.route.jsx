@@ -1,9 +1,8 @@
 import { SignInWithPhoneComponent } from "../component/SignInWithPhone.component.jsx";
-import { Toaster } from "sonner";
+import BackgroundComponent from "../component/Background.component.jsx";
 
 export const SignInByPhoneRoute = () => (
-    <div className="px-4 py-8">
+    <BackgroundComponent>
         <SignInWithPhoneComponent />
-        <Toaster richColors />
-    </div>
+    </BackgroundComponent>
 );

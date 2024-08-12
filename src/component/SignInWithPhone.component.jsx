@@ -68,7 +68,6 @@ export const SignInWithPhoneComponent = () => {
         e.preventDefault();
         const verifyOTP = async () => {
             const userCredential = await confirmation.confirm(otp);
-            toast.success("OTP verified successfully.");
             if (userCredential && userCredential.user) {
                 console.log("Successfully Signed in!");
             } else {

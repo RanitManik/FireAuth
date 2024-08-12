@@ -65,13 +65,14 @@ export const FirebaseProvider = ({ children }) => {
     firebaseAuth.useDeviceLanguage();
 
     const [user, setUser] = useState(null);
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(false);
+    const [authCheckLoading, setAuthCheckLoading] = useState(true);
     const [error, setError] = useState(null);
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(firebaseAuth, (user) => {
             setUser(user || null);
-            setLoading(false);
+            setAuthCheckLoading(false);
         });
         return () => unsubscribe();
     }, [firebaseAuth]);
@@ -163,6 +164,8 @@ export const FirebaseProvider = ({ children }) => {
                 firebaseAuth,
                 user,
                 isLoggedIn,
+                authCheckLoading,
+                setAuthCheckLoading,
                 loading,
                 error,
                 signInWithGooglePopup,
