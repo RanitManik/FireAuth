@@ -25,7 +25,11 @@ const HomeRoute = () => {
         );
     }
 
-    return <ProfileComponent user={user} />;
+    return (
+        <BackgroundComponent>
+            <ProfileComponent user={user} />
+        </BackgroundComponent>
+    );
 };
 
 export default HomeRoute;

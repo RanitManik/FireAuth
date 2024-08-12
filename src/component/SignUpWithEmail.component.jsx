@@ -83,9 +83,7 @@ const SignUpWithEmailComponent = () => {
                 })
                 .catch((error) => {
                     console.log(error);
-                    toast.error(
-                        "an error occurred sending Verification email",
-                    );
+                    toast.error("an error occurred sending Verification email");
                 });
         };
 
