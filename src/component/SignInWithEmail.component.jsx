@@ -37,8 +37,8 @@ const SignInWithEmailComponent = () => {
         };
 
         toast.promise(signInPromise(), {
-            loading: "Loading...",
-            success: "Sign-in successful",
+            loading: "Signing in, please wait...",
+            success: "Sign-in successful! Welcome back.",
             error: (error) => generateErrorMessage(error.code),
         });
     };

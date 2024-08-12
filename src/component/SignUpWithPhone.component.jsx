@@ -87,8 +87,8 @@ export const SignUpWithPhoneComponent = () => {
             setConfirmation(userConfirmation);
         };
         toast.promise(sendOTP(), {
-            loading: "Loading...",
-            success: "OTP send successful",
+            loading: "Sending OTP, please wait...",
+            success: "OTP sent successfully. Please check your inbox.",
             error: (error) => generateErrorMessage(error.code),
         });
     };
@@ -114,8 +114,8 @@ export const SignUpWithPhoneComponent = () => {
             }
         };
         toast.promise(verifyOTP(), {
-            loading: "Loading...",
-            success: "account created successfully",
+            loading: "Verifying OTP, please wait...",
+            success: "OTP verified successfully. You are now logged in.",
             error: (error) => generateErrorMessage(error.code),
         });
     };

@@ -56,10 +56,12 @@ const SignUpWithEmailComponent = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        if (password !== confirmedPassword)
-            return toast.error("passwords do not match");
-        if (password.length < 8)
-            return toast.error("password must be at least 8 characters.");
+        if (password !== confirmedPassword) {
+            return toast.error("Passwords do not match. Please try again.");
+        }
+        if (password.length < 8) {
+            return toast.error("Password must be at least 8 characters long.");
+        }
 
         const signUpPromise = async () => {
             if (profileImage !== null) {
@@ -78,20 +80,24 @@ const SignUpWithEmailComponent = () => {
             }
             sendEmailVerification(firebaseAuth.currentUser)
                 .then(() => {
-                    console.log("verification email sent successfully.");
-                    toast.success("verification email sent successfully");
+                    console.log("Verification email sent successfully.");
+                    toast.success(
+                        "Verification email sent successfully. Please check your inbox.",
+                    );
                 })
                 .catch((error) => {
                     console.log(error);
-                    toast.error("an error occurred sending Verification email");
+                    toast.error(
+                        "An error occurred while sending the verification email. Please try again later.",
+                    );
                 });
         };
 
         console.log(firebaseAuth);
 
         toast.promise(signUpPromise(), {
-            loading: "Loading...",
-            success: "Sign-up successful",
+            loading: "Processing sign-up, please wait...",
+            success: "Sign-up successful! Welcome aboard.",
             error: (error) => {
                 console.log(error);
                 return generateErrorMessage(error.code);

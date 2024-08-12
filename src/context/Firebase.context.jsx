@@ -151,7 +151,7 @@ export const FirebaseProvider = ({ children }) => {
         return signInWithEmailAndPassword(firebaseAuth, email, password);
     };
 
-    const signOutUser = async () => await signOut(firebaseAuth);
+    const signOutUser = () => signOut(firebaseAuth);
 
     const onAuthStateChangedListener = (callback) =>
         onAuthStateChanged(firebaseAuth, callback);

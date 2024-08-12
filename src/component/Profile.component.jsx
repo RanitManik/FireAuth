@@ -2,11 +2,29 @@ import ButtonComponent from "./Button.component.jsx";
 import { useFirebase } from "../context/Firebase.context.jsx";
 import { assets } from "../asset/assets.js";
 import { useState } from "react";
+import { toast } from "sonner";
+import useErrorHandlerComponent from "../hooks/LoginErrorHandler.hook.jsx";
 
 const ProfileComponent = ({ user }) => {
     console.log(user);
     const { signOutUser } = useFirebase();
     const [profileImageLoading, setProfileImageLoading] = useState(true);
+    const { generateErrorMessage } = useErrorHandlerComponent();
+
+    const handleSignOutUser = async () => {
+        const signOutUserAndRenderToast = async () => {
+            await signOutUser();
+        };
+        toast.promise(signOutUserAndRenderToast(), {
+            loading: "Signing out, please wait...",
+            success: "You have been signed out successfully.",
+            error: (error) => {
+                console.log(error);
+                return generateErrorMessage(error.code);
+            },
+        });
+    };
+
     return (
         <div className="m-auto grid max-h-fit w-fit min-w-full gap-4 rounded-xl bg-white p-8 text-body shadow duration-500 animate-in fade-in sm:min-w-[30rem]">
             <div
@@ -106,7 +124,7 @@ const ProfileComponent = ({ user }) => {
                     />
                 </div>
             )}
-            <ButtonComponent onClick={signOutUser} text="Log out" />
+            <ButtonComponent onClick={handleSignOutUser} text="Log out" />
         </div>
     );
 };

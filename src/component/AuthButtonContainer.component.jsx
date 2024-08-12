@@ -72,8 +72,8 @@ const AuthBtnContainerComponent = () => {
             console.log("Successfully Signed in...");
         };
         toast.promise(signInPromise(), {
-            loading: "Loading...",
-            success: "Sign-up successful",
+            loading: "Signing in, please wait...",
+            success: "Sign-in successful! You are now logged in.",
             error: (error) => {
                 console.log(error);
                 return generateErrorMessage(error.code);
